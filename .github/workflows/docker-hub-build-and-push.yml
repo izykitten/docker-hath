@@ -5,7 +5,7 @@ on:
     branches:
       - "master"
 env:
-  HATH_VERSION: 1.6.2
+  HATH_VERSION: 1.6.3
 
 jobs:
   docker:
