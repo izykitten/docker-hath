@@ -5,7 +5,7 @@ on:
     branches:
       - "master"
 env:
-  HATH_VERSION: 1.6.4
+  HATH_VERSION_WORKFLOW: 1.6.4
 
 jobs:
   docker:
@@ -28,5 +28,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: frosty5689/hath:${{ env.HATH_VERSION }}, frosty5689/hath:latest
+          tags: ${{ secrets.GITHUB_USERNAME }}/hath:${{ env.HATH_VERSION }}, ${{ secrets.GITHUB_USERNAME }}/hath:latest
           build-args: HATH_VERSION=${{ env.HATH_VERSION }}

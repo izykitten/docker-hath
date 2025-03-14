@@ -1,0 +1,12 @@
+services:
+  hath:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - HATH_CLIENT_ID=YOUR_HATH_CLIENT_ID
+      - HATH_CLIENT_KEY=YOUR_HATH_CLIENT_KEY
+      - TZ=Etc/UTC
+    volumes:
+      - ./data:/hath
+    restart: unless-stopped
