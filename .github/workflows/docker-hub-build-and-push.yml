@@ -51,7 +51,9 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
-          if ! git diff-index --quiet HEAD; then
+          if [ "${{ github.event_name }}" = "push" ]; then
+            git commit --allow-empty -m "Automated build and vulnerabilities scan"
+          elif ! git diff-index --quiet HEAD; then
             git commit -m "Automated build and vulnerabilities scan"
           else
             echo "No changes to commit."
